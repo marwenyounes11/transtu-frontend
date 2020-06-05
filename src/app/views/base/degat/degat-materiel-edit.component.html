@@ -1,0 +1,91 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveDegatMateriel()"
+          [formGroup]="degatMaterielForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="descriptionDegatId">إ وصف الضرر</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="descriptionDegatId"
+                 type="text"
+                 placeholder=" وصف الضرر"
+                 formControlName="descriptionDegat"
+                 [ngClass]="{'is-invalid': displayMessage.descriptionDegat }" />
+          <span class="invalid-feedback">
+            {{displayMessage.descriptionDegat}}
+          </span>
+        </div>
+      </div>
+
+     
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="estimationPrixDegatId">تكلفة  الضرر</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="estimationPrixDegatId"
+                 type="text"
+                 placeholder="تكلفة  الضرر"
+                 formControlName="estimationPrixDegatId"
+                 [ngClass]="{'is-invalid': displayMessage.estimationPrixDegatId }" />
+          <span class="invalid-feedback">
+            {{displayMessage.estimationPrixDegatId}}
+          </span>
+        </div>
+      </div>
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="accidentId">  الرقم الالي  للموقع   </label>
+
+        <div class="col-md-8">
+           <select id="accidentId" formControlName="accidentId" class="form-control">
+                  <option *ngFor="let r of  filteredRapportCollision" [value]="r.id">{{r.id}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.accidentId}}
+          </span>
+        </div>
+      </div>
+
+
+      
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="degatMaterielForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!degatMaterielForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة الاضرار المادية']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteDegatMateriel()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveLine()"
+          [formGroup]="lineForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameLineId">اسم الخط</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="nameLineId"
+                 type="text"
+                 placeholder="اسم الخط"
+                 formControlName="nameLine"
+                 [ngClass]="{'is-invalid': displayMessage.nameLine }" />
+          <span class="invalid-feedback">
+            {{displayMessage.nameLine}}
+          </span>
+        </div>
+      </div>
+
+       
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="lineForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!lineForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة الخطوط']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteLine()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

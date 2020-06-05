@@ -1,0 +1,258 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveAccident()"
+          [formGroup]="accidentTravailForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="timeAccidentId"> وقت  الحادث  </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="timeAccidentId"
+                 type="time"
+                 placeholder="قت  الحادث  "
+                 formControlName="timeAccident"
+                 [ngClass]="{'is-invalid': displayMessage.timeAccident }" />
+          <span class="invalid-feedback">
+            {{displayMessage.timeAccident}}
+          </span>
+        </div>
+      </div>
+
+       <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="dateAccidentId">تاريخ الحادث  </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="dateAccidentId"
+                 type="date"
+                 placeholder="اريخ الحادث  "
+                 formControlName="dateAccident"
+                 [ngClass]="{'is-invalid': displayMessage.dateAccident }" />
+          <span class="invalid-feedback">
+            {{displayMessage.dateAccident}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="dateSaisiId">تاريخ التسجيل  </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="dateSaisiId"
+                 type="date"
+                 placeholder="اريخ التسجيل "
+                 formControlName="dateSaisi"
+                 [ngClass]="{'is-invalid': displayMessage.dateSaisi }" />
+          <span class="invalid-feedback">
+            {{displayMessage.dateSaisi}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="timeSaisiId"> وقت التسجيل </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="timeSaisiId"
+                 type="time"
+                 placeholder="قت التسجيل "
+                 formControlName="timeSaisi"
+                 [ngClass]="{'is-invalid': displayMessage.timeSaisi }" />
+          <span class="invalid-feedback">
+            {{displayMessage.timeSaisi}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="dateInfoId">تاريخ الاعلام </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="dateInfoId"
+                 type="date"
+                 placeholder="اريخ الاعلام "
+                 formControlName="dateInfo"
+                 [ngClass]="{'is-invalid': displayMessage.dateInfo }" />
+          <span class="invalid-feedback">
+            {{displayMessage.dateInfo}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="timeInfoId">وقت الاعلام </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="timeInfoId"
+                 type="time"
+                 placeholder="Time (required)"
+                 formControlName="timeInfo"
+                 [ngClass]="{'is-invalid': displayMessage.timeInfo }" />
+          <span class="invalid-feedback">
+            {{displayMessage.timeInfo}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="descriptionId">Description</label>
+
+        <div class="col-md-8">
+          <textarea class="form-control"
+                    id="descriptionId"
+                    placeholder="Description"
+                    rows=3
+                    formControlName="description"
+                    [ngClass]="{'is-invalid': displayMessage.description}"></textarea>
+          <span class="invalid-feedback">
+            {{ displayMessage.description}}
+          </span>
+        </div>
+      </div>
+
+       <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="typeAccTravailId">typeAccTravail</label>
+
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="typeAccTravailId"
+                 type="text"
+                 placeholder="type Accident Travail (required)"
+                 formControlName="typeAccTravail"
+                 [ngClass]="{'is-invalid': displayMessage.typeAccTravail}" />
+          <span class="invalid-feedback">
+            {{displayMessage.typeAccTravail}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="idEmplacementId">  الموقع  </label>
+
+        <div class="col-md-8">
+           <select id="idEmplacementId" formControlName="idEmplacement" class="form-control">
+                  <option *ngFor="let e of  filteredEmplacement" [value]="e.id">{{e.delegation}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.idEmplacement}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="idSourceInfoId">  مصدر الاعلام  </label>
+
+        <div class="col-md-8">
+           <select id="idSourceInfoId" formControlName="idSourceInfo" class="form-control">
+                  <option *ngFor="let s of  filteredSourceInfo" [value]="s.id">{{s.id}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.idSourceInfo}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="idAgentPcrId">  اعوان التسجيل </label>
+
+        <div class="col-md-8">
+           <select id="idAgentPcrId" formControlName="idAgentPcr" class="form-control">
+                  <option *ngFor="let a of  filteredAgentPcr" [value]="a.id">{{a.nameAgent}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.idAgentPcr}}
+          </span>
+        </div>
+      </div>
+
+       <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="idRecordId">  مالمحضر </label>
+
+        <div class="col-md-8">
+           <select id="idRecordId" formControlName="idRecord" class="form-control">
+                  <option *ngFor="let r of  filteredRecord" [value]="r.id">{{r.descriptionRecord}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.idRecord}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="idDegatId">الضرر</label>
+
+        <div class="col-md-8">
+           <select id="idDegatId" formControlName="idDegat" class="form-control">
+                  <option *ngFor="let d of  filteredDegat" [value]="d.id">{{d.descriptionDegat}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.idDegat}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="idTransportId"> وسيلة النقل</label>
+
+        <div class="col-md-8">
+           <select id="idTransportId" formControlName="idTransport" class="form-control">
+                  <option *ngFor="let t of  filteredTransport" [value]="t.id">{{t.numTransport}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.idTransport}}
+          </span>
+        </div>
+      </div>
+
+      
+      
+      
+      
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="accidentTravailForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!accidentTravailForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/accidentstravail']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this accident"
+                  (click)="deleteAccident()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

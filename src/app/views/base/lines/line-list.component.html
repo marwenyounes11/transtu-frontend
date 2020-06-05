@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]="listFilter" />
+      </div>
+    </div>
+    <div class="row"
+         *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="lines && lines.length">
+        <thead>
+             <tr>
+            <th>تفاصيل الخطوط</th>
+             <th>الرقم الالي</th>
+             <th>الاسم</th>
+             <th>التحديث</th>
+            </tr>
+      </thead>
+        <tbody>
+          <tr *ngFor="let l of  filteredLine">
+            
+            <td>
+              <a [routerLink]="['/ائمة  عمال ', l.id]">
+                {{ l.id }}
+              </a>
+            </td>
+              <td>{{l.id}}</td>
+              <td>{{l.nameLine}}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/ائمة  عمال ', l.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>

@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="bus">
+    {{pageTitle + ": " + bus.numBus}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="bus">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        
+        <div class="row">
+          <div class="col-md-3">NumBus:</div>
+          <div class="col-md-6">{{bus.numBus}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Immatriculation:</div>
+          <div class="col-md-6">{{bus.immatriculation}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Marque:</div>
+          <div class="col-md-6">{{bus.marque}}</div>
+        </div>
+         <div class="row">
+          <div class="col-md-3">Model:</div>
+          <div class="col-md-6">{{bus.model}}</div>
+        </div>
+         <div class="row">
+          <div class="col-md-3">Gabarit:</div>
+          <div class="col-md-6">{{bus.gabarit}}</div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">Id district:</div>
+          <div class="col-md-6">{{bus.iddistrict}}</div>
+        </div>
+        
+        
+        
+        
+      </div>
+
+      
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/bus', bus.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

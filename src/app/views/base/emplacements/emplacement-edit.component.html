@@ -1,0 +1,107 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveEmplacement()"
+          [formGroup]="emplacementForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="delegationId">الاسم المعرف  للاقليم  </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="delegationId"
+                 type="text"
+                 placeholder="المعتمدية"
+                 formControlName="delegation"
+                 [ngClass]="{'is-invalid': displayMessage.delegation }" />
+          <span class="invalid-feedback">
+            {{displayMessage.delegation}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="gouvernoratId">اسم الاقليم</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="gouvernoratId"
+                 type="text"
+                 placeholder="اسم الاقليم"
+                 formControlName="gouvernorat"
+                 [ngClass]="{'is-invalid': displayMessage.gouvernorat }" />
+          <span class="invalid-feedback">
+            {{displayMessage.gouvernorat}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="gouvernoratId">اسم الاقليم</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="gouvernoratId"
+                 type="text"
+                 placeholder="اسم الاقليم"
+                 formControlName="gouvernorat"
+                 [ngClass]="{'is-invalid': displayMessage.gouvernorat }" />
+          <span class="invalid-feedback">
+            {{displayMessage.gouvernorat}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="localisationId">المكان </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="localisationId"
+                 type="text"
+                 placeholder="المكان"
+                 formControlName="localisation"
+                 [ngClass]="{'is-invalid': displayMessage.localisation }" />
+          <span class="invalid-feedback">
+            {{displayMessage.localisation}}
+          </span>
+        </div>
+      </div>
+
+       
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="emplacementForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!emplacementForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة المواقع ']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteEmplacement()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="district">
+    {{pageTitle + ": " + district.id}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="district">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"> الاسم المعرف  للاقليم </div>
+          <div class="col-md-6">{{district.aliasDistrict}}</div>
+        </div>
+    </div>
+<div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"> اسم  الاقليم </div>
+          <div class="col-md-6">{{district.nameDistrict}}</div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/base/تحديث الخط',district.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

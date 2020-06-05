@@ -1,0 +1,155 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveRapport()"
+          [formGroup]="rapportsRouteForm">
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameLineId">  الرقم الالي  للموقع   </label>
+
+        <div class="col-md-8">
+           <select id="nameLineId" formControlName="nameLine" class="form-control">
+                  <option *ngFor="let r of  filteredRapportRoute" [value]="r.id">{{r.id}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.nameLine}}
+          </span>
+        </div>
+      </div>
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameDistrictId">  الرقم الالي  للموقع   </label>
+
+        <div class="col-md-8">
+           <select id="nameDistrictId" formControlName="nameDistrict" class="form-control">
+                  <option *ngFor="let r of  filteredRapportRoute" [value]="r.id">{{r.id}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.nameDistrict}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="numTransportId">  الرقم الالي  للموقع   </label>
+
+        <div class="col-md-8">
+           <select id="numTransportId" formControlName="numTransport" class="form-control">
+                  <option *ngFor="let r of  filteredRapportRoute" [value]="r.id">{{r.id}}</option>
+                </select>
+          <span class="invalid-feedback">
+            {{displayMessage.numTransport}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="timeAccidentId">Time Accident</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="timeAccidentId"
+                 type="time"
+                 placeholder="Time (required)"
+                 formControlName="timeAccident"
+                 [ngClass]="{'is-invalid': displayMessage.timeAccident }" />
+          <span class="invalid-feedback">
+            {{displayMessage.timeAccident}}
+          </span>
+        </div>
+      </div>
+
+       <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="dateAccidentId">date Accident</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="dateAccidentId"
+                 type="date"
+                 placeholder="Date (required)"
+                 formControlName="dateAccident"
+                 [ngClass]="{'is-invalid': displayMessage.dateAccident }" />
+          <span class="invalid-feedback">
+            {{displayMessage.dateAccident}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameChauffeurId">name chauffeur</label>
+
+        <div class="col-md-8">
+          <textarea class="form-control"
+                    id="nameChauffeurId"
+                    placeholder="nameChauffeur"
+                    rows=3
+                    formControlName="nameChauffeur"
+                    [ngClass]="{'is-invalid': displayMessage.nameChauffeur}"></textarea>
+          <span class="invalid-feedback">
+            {{ displayMessage.nameChauffeur}}
+          </span>
+        </div>
+      </div>
+
+      
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="descriptionId">Description Degat</label>
+
+        <div class="col-md-8">
+          <textarea class="form-control"
+                    id="descriptionId"
+                    placeholder="Description"
+                    rows=3
+                    formControlName="description"
+                    [ngClass]="{'is-invalid': displayMessage.description}"></textarea>
+          <span class="invalid-feedback">
+            {{ displayMessage.description}}
+          </span>
+        </div>
+      </div>
+      
+      
+      
+      
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="rapportRouteForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!rapportRouteForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/rapportsroute']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this Rapport"
+                  (click)="deleteRapport()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

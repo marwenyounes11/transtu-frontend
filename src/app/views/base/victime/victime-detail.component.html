@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="victime">
+    {{pageTitle + ": " + victime.id}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="victime">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"> الضحية </div>
+          <div class="col-md-6">{{victime.corpBlesser}}</div>
+        </div>
+       
+       <div class="row">
+          <div class="col-md-3"> مستوى الاصابة </div>
+          <div class="col-md-6">{{victime.niveauBlesser}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3"> الحالة </div>
+          <div class="col-md-6">{{victime.etatVictime}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3"> صفة الضحية </div>
+          <div class="col-md-6">{{victime.typeVictime}}</div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-3"> لاللقب  </div>
+          <div class="col-md-6">{{victime.lastNameVictime}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">هالاسم </div>
+          <div class="col-md-6">{{victime.nameVictime}}</div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/base/تحديث  الضحايا/',victime.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveVictime()"
+          [formGroup]="victimeForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="corpBlesserId">لضحية</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="corpBlesserId"
+                 type="text"
+                 placeholder="لضحية "
+                 formControlName="corpBlesser"
+                 [ngClass]="{'is-invalid': displayMessage.corpBlesser }" />
+          <span class="invalid-feedback">
+            {{displayMessage.corpBlesser}}
+          </span>
+        </div>
+      </div>
+
+       
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="niveauBlesserId">مستوى الاصابة </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="niveauBlesserId"
+                 type="text"
+                 placeholder="مستوى الاصابة "
+                 formControlName="niveauBlesser"
+                 [ngClass]="{'is-invalid': displayMessage.niveauBlesser }" />
+          <span class="invalid-feedback">
+            {{displayMessage.niveauBlesser}}
+          </span>
+        </div>
+      </div>
+
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="etatVictimeId">الحالة </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="etatVictimeId"
+                 type="text"
+                 placeholder="الحالة "
+                 formControlName="etatVictime"
+                 [ngClass]="{'is-invalid': displayMessage.etatVictime }" />
+          <span class="invalid-feedback">
+            {{displayMessage.etatVictime}}
+          </span>
+        </div>
+      </div>
+
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="typeVictimeId">صفة الضحية </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="typeVictimeId"
+                 type="text"
+                 placeholder="صفة الضحية "
+                 formControlName="typeVictime"
+                 [ngClass]="{'is-invalid': displayMessage.typeVictime }" />
+          <span class="invalid-feedback">
+            {{displayMessage.typeVictime}}
+          </span>
+        </div>
+      </div>
+
+      
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="lastNameVictimeId">اللقب  </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="lastNameVictimeId"
+                 type="text"
+                 placeholder="اللقب  "
+                 formControlName="lastNameVictime"
+                 [ngClass]="{'is-invalid': displayMessage.lastNameVictime }" />
+          <span class="invalid-feedback">
+            {{displayMessage.lastNameVictime}}
+          </span>
+        </div>
+      </div>
+
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameVictimeId">الاسم </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="nameVictimeId"
+                 type="text"
+                 placeholder="الاسم "
+                 formControlName="nameVictime"
+                 [ngClass]="{'is-invalid': displayMessage.nameVictime }" />
+          <span class="invalid-feedback">
+            {{displayMessage.nameVictime}}
+          </span>
+        </div>
+      </div>
+     
+
+
+
+
+      
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="victimeForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!victimeForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة  الضحايا']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteVictime()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

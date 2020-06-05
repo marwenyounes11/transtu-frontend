@@ -1,0 +1,85 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]="listFilter" />
+      </div>
+    </div>
+    <div class="row"
+         *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="accidents && accidents.length">
+  <thead>
+  <tr>        
+  <th>      تفاصيل الحوادث             </th>  
+  <th>          الرقم الالي               </th>     
+   <th>               وقت  الحادث        </th>
+   <th>            تاريخ الحادث           </th>
+   <th>            تاريخ التسجيل       </th>
+   <th>            وقت التسجيل        </th>
+   <th>           تاريخ الاعلام           </th>
+   <th>            وقت الاعلام           </th>
+  <th>الوصف                             </th>
+  <th>صورة                               </th>
+  <th>   الرقم الالي  للموقع              </th>
+  <th> الرقم الالي  للعامل                 </th>
+  <th>  الرقم الالي  للمحضر              </th>
+  <th>  الرقم الالي  لمصدر الاعلام         </th>
+  <th>  الرقم الالي  للضرر                </th>
+  <th>  الرقم الالي  للحافلة               </th>
+  <th> تحديث                              </th>
+  </tr>
+  </thead>
+        <tbody>
+          <tr *ngFor="let c of  filteredAccidentCollision">
+            
+             <td>
+              <a [routerLink]="['/base/accidents', c.id]">
+                {{ c.id }}
+              </a>
+             </td>
+              <td>{{c.id}}            </td>
+              <td>{{c.timeAccident}}  </td>
+              <td>{{c.dateAccident}}  </td>
+              <td>{{c.dateSaisi}}     </td>
+              <td>{{c.timeSaisi}}     </td>
+              <td>{{c.dateInfo}}      </td>
+              <td>{{c.timeInfo}}      </td>
+              <td>{{c.description}}   </td>
+              <td>{{c.photo}}         </td>
+              <td>{{c.idAgentPcr}}    </td>
+              <td>{{c.idEmplacement}}  </td>
+              <td>{{c.idRecord}}      </td>
+              <td>{{c.idSourceInfo}}  </td>
+              <td>{{c.idDegat}}       </td>
+              <td>{{c.idBus}}         </td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/base/accidentscollision', c.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>

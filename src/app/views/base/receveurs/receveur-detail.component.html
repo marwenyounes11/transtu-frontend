@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="receveur">
+    {{pageTitle + ": " + receveur.id}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="receveur">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">عنوان القابض</div>
+          <div class="col-md-6">{{receveur.addressReceveur}}</div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">مدينة القابض</div>
+          <div class="col-md-6">{{receveur.cityReceveur}}</div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"> البريد الالكتروني للقابض</div>
+          <div class="col-md-6">{{receveur.emailReceveur}}</div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">لقب القابض</div>
+          <div class="col-md-6">{{receveur.lastNameReceveur}}</div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">اسم القابض</div>
+          <div class="col-md-6">{{receveur.nameReceveur}}</div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">هاتف القابض</div>
+          <div class="col-md-6">{{receveur.phoneReceveur}}</div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/base/تحديث القباض ',receveur.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

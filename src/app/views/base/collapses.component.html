@@ -1,0 +1,106 @@
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> <strong>متابعة مطفأة حريق </strong>
+          <div class="card-header-actions">
+            <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse()"><i class={{iconCollapse}}></i></button>
+          </div>
+        </div>
+        <div (collapsed)="collapsed($event)"
+             (expanded)="expanded($event)"
+             [collapse]="isCollapsed"
+             class="card-body">
+
+             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                         
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input">رقم السلسلة</label>
+                  <div class="col-md-9">
+                    <input type="text" id="text-input" name="text-input" class="form-control" placeholder="رقم السلسلة">
+                  </div>
+              </div>
+            </form>
+            <div class="row">
+              <!--/.col-->
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i> تاريخ المطفأة
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>المكان</th>
+                          <th>من</th>
+                          <th>الى</th>
+                          <th>الحالة</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>somewhere</td>
+                          <td>2012/01/01</td>
+                          <td>2014/01/01</td>
+                          <td>
+                            <span class="badge badge-success">Active</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>somewhere else</td>
+                          <td>2014/02/01</td>
+                          <td>2015/02/01</td>
+                          <td>
+                            <span class="badge badge-danger">Active</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>a new location</td>
+                          <td>2015/02/01</td>
+                          <td>2016/02/01</td>
+                          <td>
+                            <span class="badge badge-danger">Active</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>a new location</td>
+                          <td>2016/02/01</td>
+                          <td>2019/02/01</td>
+                          <td>
+                            <span class="badge badge-secondary">Inactive</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>a new location</td>
+                          <td>2019/02/01</td>
+                          <td>--</td>
+                          <td>
+                            <span class="badge badge-secondary">Inactive</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">السابق</a></li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">التالي</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!--/.col-->
+            </div>
+              
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+</div>

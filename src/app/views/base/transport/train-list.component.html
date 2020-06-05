@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]="listFilter" />
+      </div>
+    </div>
+    <div class="row"
+         *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="train && train.length">
+        <thead>
+             <tr>
+             <th>تفاصيل القطارات</th>
+            <th>الرقم الالي</th>
+            <th>رقم القطار</th>
+             <th>رقم التسجيل</th>
+             <th>نوع القطار</th>
+             <th>نموذج القطار</th>
+             <th>عدد المقاعد</th>
+             <th> الاقليم</th>
+             <th>الخط</th>
+             <th>رقم الحادث</th>
+             <th>السائق</th>    
+             <th>الضرر</th>
+             <th>التحديث</th>
+            </tr>
+      </thead>
+        <tbody>
+          <tr *ngFor="let t of  filteredtrain">
+            
+            <td>
+              <a [routerLink]="['/base/قائمة القطارات', t.id]">
+                {{ t.id }}
+              </a>
+            </td>
+              <td>{{t.id}}</td>
+              <td>{{t.numTransport}}</td>
+              <td>{{t.immatriculation}}</td>
+              <td>{{t.marque}}</td>
+              <td>{{t.model}}</td>
+              <td>{{t.gabarit}}</td>
+              <td>{{t.idDistrict}}</td>
+              <td>{{t.idLine}}</td>
+              <td>{{t.idAccident}}</td>
+              <td>{{t.idChauffeur}}</td> 
+              <td>{{t.idDegatMateriel}}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/base/تحديث القطارات', t.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>

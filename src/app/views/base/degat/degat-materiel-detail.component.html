@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="degatmateriel">
+    {{pageTitle + ": " + degatmateriel.id}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="degatmateriel">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"> وصف الضرر </div>
+          <div class="col-md-6">{{degatmateriel. descriptionDegat}}</div>
+        </div>
+       
+        <div class="row">
+          <div class="col-md-3"> تكلفة  الضرر </div>
+          <div class="col-md-6">{{degatmateriel.estimationPrixDegat}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">رقم الحادث </div>
+          <div class="col-md-6">{{degatmateriel.idAccident}}</div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/base/تحديث الاضرار المادية ',degatmateriel.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

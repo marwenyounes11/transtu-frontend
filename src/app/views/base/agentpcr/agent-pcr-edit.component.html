@@ -1,0 +1,93 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveAgentPcr()"
+          [formGroup]="agentPcrForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameAgentId">إسم عامل  القاعة </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="nameAgentId"
+                 type="text"
+                 placeholder="إسم عامل  القاعة "
+                 formControlName="nameAgent"
+                 [ngClass]="{'is-invalid': displayMessage.nameAgent }" />
+          <span class="invalid-feedback">
+            {{displayMessage.nameAgent}}
+          </span>
+        </div>
+      </div>
+
+     
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="lastNameAgentId">لقب عامل  القاعة </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="lastNameAgentId"
+                 type="text"
+                 placeholder="إلقب عامل  القاعة "
+                 formControlName="lastNameAgentId"
+                 [ngClass]="{'is-invalid': displayMessage.lastNameAgentId }" />
+          <span class="invalid-feedback">
+            {{displayMessage.lastNameAgentId}}
+          </span>
+        </div>
+      </div>
+
+
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="phoneAgentId">لهاتف عامل  القاعة </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="phoneAgentId"
+                 type="text"
+                 placeholder="إهاتف عامل  القاعة "
+                 formControlName="phoneAgentId"
+                 [ngClass]="{'is-invalid': displayMessage.phoneAgentId }" />
+          <span class="invalid-feedback">
+            {{displayMessage.phoneAgentId}}
+          </span>
+        </div>
+      </div>
+      
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="agentPcrForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!agentPcrForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة  عمال ']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteAgentPcr()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

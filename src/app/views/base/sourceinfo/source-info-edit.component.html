@@ -1,0 +1,107 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveSourceInfo()"
+          [formGroup]="sourceInfoForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameInfoId">إسم مصدر الاعلام </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="nameInfoId"
+                 type="text"
+                 placeholder="إإسم مصدر الاعلام"
+                 formControlName="nameInfo"
+                 [ngClass]="{'is-invalid': displayMessage.nameInfo }" />
+          <span class="invalid-feedback">
+            {{displayMessage.nameInfo}}
+          </span>
+        </div>
+      </div>
+
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="lastNameInfoId">للقب مصدر الاعلام </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="lastNameInfoId"
+                 type="text"
+                 placeholder="إلقب مصدر الاعلام "
+                 formControlName="lastNameInfoId"
+                 [ngClass]="{'is-invalid': displayMessage.lastNameInfoId }" />
+          <span class="invalid-feedback">
+            {{displayMessage.lastNameInfoId}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="natureInfoId">لنوع مصدر الاعلام </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="natureInfoId"
+                 type="text"
+                 placeholder="نوع مصدر الاعلام "
+                 formControlName="natureInfoId"
+                 [ngClass]="{'is-invalid': displayMessage.natureInfoId }" />
+          <span class="invalid-feedback">
+            {{displayMessage.natureInfoId}}
+          </span>
+        </div>
+      </div>
+
+
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="phoneInfoId">لهاتف مصدر الاعلام </label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="phoneInfoId"
+                 type="text"
+                 placeholder="إهاتف مصدر الاعلام"
+                 formControlName="phoneInfoId"
+                 [ngClass]="{'is-invalid': displayMessage.phoneInfoId }" />
+          <span class="invalid-feedback">
+            {{displayMessage.phoneInfoId}}
+          </span>
+        </div>
+      </div>
+      
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="sourceInfoForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!sourceInfoForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة مصدر الاعلام']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteSourceInfo()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

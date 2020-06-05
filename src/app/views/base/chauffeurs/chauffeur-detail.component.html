@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="chauffeur">
+    {{pageTitle + ": " + chauffeur.matricule}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="chauffeur">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">عنوان  السائق:</div>
+          <div class="col-md-6">{{chauffeur.addressChauffeur}}</div>
+        </div>
+
+        <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">مدينة  السائق:</div>
+          <div class="col-md-6">{{chauffeur.cityChauffeur}}</div>
+        </div>
+
+        <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">البريد الإلكتروني للسائق</div>
+          <div class="col-md-6">{{chauffeur.emailChauffeur}}</div>
+        </div>
+
+        <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">لقب  السائق</div>
+          <div class="col-md-6">{{chauffeur.lastNameChauffeur}}</div>
+        </div>
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">اسم السائق</div>
+          <div class="col-md-6">{{chauffeur.nameChauffeur}}</div>
+        </div>
+
+       
+
+        <div class="row">
+          <div class="col-md-3">هاتف السائق</div>
+          <div class="col-md-6">{{chauffeur.phoneChauffeur}}</div>
+        </div>
+
+      </div>
+
+      
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/chauffeurs', chauffeur.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

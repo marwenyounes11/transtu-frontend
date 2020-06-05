@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveDepartement()"
+          [formGroup]="departementForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameDeptId">اسم المبنى</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="nameDeptId"
+                 type="text"
+                 placeholder="اسم المبنى"
+                 formControlName="nameDept"
+                 [ngClass]="{'is-invalid': displayMessage.nameDept }" />
+          <span class="invalid-feedback">
+            {{displayMessage.nameDept}}
+          </span>
+        </div>
+      </div>
+
+       
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="departementForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!departementForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة المباني']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteDepartement()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

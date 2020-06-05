@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="agentpcr">
+    {{pageTitle + ": " + agentpcr.id}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="agentpcr">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"> إسم عامل  القاعة </div>
+          <div class="col-md-6">{{agentpcr.nameAgent}}</div>
+        </div>
+       
+        <div class="row">
+          <div class="col-md-3"> لقب عامل  القاعة </div>
+          <div class="col-md-6">{{agentpcr.lastNameAgent}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">هاتف عامل  القاعة </div>
+          <div class="col-md-6">{{agentpcr.phoneAgent}}</div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/base/لبحث عن عامل ',agentpcr.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

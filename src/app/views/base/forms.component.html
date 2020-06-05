@@ -1,0 +1,124 @@
+<html dir="rtl" lang="ar">
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> <strong>جدول الاعتداءات اليومية  </strong>شبكة الحافلات {{today | date}}
+          <div class="card-header-actions">
+            <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse()"><i class={{iconCollapse}}></i></button>
+          </div>
+        </div>
+        <div (collapsed)="collapsed($event)"
+             (expanded)="expanded($event)"
+             [collapse]="isCollapsed"
+             class="card-body">
+
+             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label"> حوادث  </label>
+                  <div class="col-md-9 col-form-label">
+                    <div class="form-check form-check-inline mr-1">
+                      <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1">
+                      <label class="form-check-label" for="inline-checkbox1">جولان</label>
+                    </div>
+                    <div class="form-check form-check-inline mr-1">
+                      <input class="form-check-input" type="checkbox" id="inline-checkbox2" value="option2">
+                      <label class="form-check-label" for="inline-checkbox2">شغل</label>
+                    </div>
+                    <div class="form-check form-check-inline mr-1">
+                      <input class="form-check-input" type="checkbox" id="inline-checkbox3" value="option3">
+                      <label class="form-check-label" for="inline-checkbox3">تخريب</label>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="select1">الاقليم </label>
+                <div class="col-md-9">
+                  <select id="select1" name="select1" class="form-control">
+                    <option value="0"> تحديد الاقليم</option>
+                    <option value="1">District #1</option>
+                    <option value="2">District #2</option>
+                    <option value="3">District #3</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input">مكان الاعتداء</label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input" name="text-input" class="form-control" placeholder="المكان">
+                </div>
+            </div>
+
+
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="select1">الحافلة </label>
+                  <div class="col-md-9">
+                    <select id="select1" name="select1" class="form-control">
+                      <option value="0"> تحديد رقم الحافلة </option>
+                      <option value="1">635</option>
+                      <option value="2">80</option>
+                      <option value="3">6p</option>
+                      <option value="4">other</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input">السائق</label>
+                  <div class="col-md-9">
+                    <input type="text" id="text-input" name="text-input" class="form-control" placeholder="الرقم الالي">
+                  </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="date-input">التوقيت</label>
+                <div class="col-md-9">
+                  <input class="form-control" id="time-input" type="time" name="time-input" placeholder="time">
+                </div>
+              </div>
+
+                    
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">نوع الاضرار</label>
+                <div class="col-md-9 col-form-label">
+                  <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" type="checkbox" id="loss-cb" value="option1">
+                    <label class="form-check-label" for="loss-cb">بدنية</label>
+                  </div>
+                  <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" type="checkbox" id="loss-cb" value="option2">
+                    <label class="form-check-label" for="loss-cb">مادية</label>
+                 </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="textarea-input">ملاحظات</label>
+                <div class="col-md-9">
+                  <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control" placeholder="Content.."></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="file-multiple-input">ملفات اضافية</label>
+                  <div class="col-md-9">
+                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple>
+                  </div>
+              </div>
+            </form>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ارسال</button>
+                <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> حذف</button>
+            </div>    
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+</div>
+</html>

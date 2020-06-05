@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]="listFilter" />
+      </div>
+    </div>
+    <div class="row"
+         *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="sourcesinfo && sourcesinfo.length">
+        <thead>
+             <tr>
+             <th>تفاصيل مصدر الاعلام</th>
+            <th>الرقم الالي</th>
+            <th>الاسم</th>
+             <th>اللقب</th>
+             <th>نوع المصدر</th>
+             <th>رقم الهاتف</th>
+            <th>التحديث</th>
+            </tr>
+      </thead>
+        <tbody>
+          <tr *ngFor="let s of  filteredSourceInfo">
+            
+            <td>
+              <a [routerLink]="['/base/ائمة  عمال ', a.id]">
+                {{ s.id }}
+              </a>
+            </td>
+              <td>{{s.id}}</td>
+              <td>{{s.nameInfo}}</td>
+              <td>{{s.lastNameInfo}}</td>
+               <td>{{s.natureInfo}}</td>
+              <td>{{s.phoneInfo}}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/base/قائمة مصدر الاعلام ' , a.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>

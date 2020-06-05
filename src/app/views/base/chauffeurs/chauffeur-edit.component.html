@@ -1,0 +1,161 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveChauffeur()"
+          [formGroup]="chauffeurForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="addressChauffeurId">عنوان  السائق</label>
+
+        <div class="col-md-8">
+          <input  class="form-control"
+                    id="addressChauffeurId"
+                    type="text"
+                    placeholder=" عنوان  السائق"
+                    rows=3
+                    formControlName="addressChauffeur"
+                    [ngClass]="{'is-invalid': displayMessage.addressChauffeur}"/>
+          <span class="invalid-feedback">
+            {{ displayMessage.addressChauffeur}}
+          </span>
+        </div>
+      </div>
+
+
+       <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="cityChauffeurId">مدينة  السائق</label>
+
+        <div class="col-md-8">
+          <input  class="form-control"
+                    id="cityChauffeurId"
+                    type="text"
+                    placeholder="مدينة  السائق"
+                    rows=3
+                    formControlName="cityChauffeur"
+                    [ngClass]="{'is-invalid': displayMessage.cityChauffeur}"/>
+          <span class="invalid-feedback">
+            {{ displayMessage.cityChauffeur}}
+          </span>
+        </div>
+      </div>
+
+     <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="emailChauffeurId">البريد الإلكتروني للسائق</label>
+
+        <div class="col-md-8">
+          <input  class="form-control"
+                    id="emailChauffeurId"
+                    type="text"
+                    placeholder="البريد الإلكتروني للسائق"
+                    rows=3
+                    formControlName="emailChauffeur"
+                    [ngClass]="{'is-invalid': displayMessage.emailChauffeur}"/>
+          <span class="invalid-feedback">
+            {{ displayMessage.emailChauffeur}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="lastNameChauffeurId">لقب  السائق</label>
+
+        <div class="col-md-8">
+          <input  class="form-control"
+                    id="lastNameChauffeurId"
+                    type="text"
+                    placeholder="لقب  السائق"
+                    rows=3
+                    formControlName="lastNameChauffeur"
+                    [ngClass]="{'is-invalid': displayMessage.lastNameChauffeur}"/>
+          <span class="invalid-feedback">
+            {{ displayMessage.lastNameChauffeur}}
+          </span>
+        </div>
+      </div>
+
+
+
+      
+       <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameChauffeurId">اسم السائق
+</label>
+
+        <div class="col-md-8">
+          <input  class="form-control"
+                    id="nameChauffeurId"
+                    type="text"
+                    placeholder="اسم السائق"
+                    rows=3
+                    formControlName="nameChauffeur"
+                    [ngClass]="{'is-invalid': displayMessage.nameChauffeur}"/>
+          <span class="invalid-feedback">
+            {{ displayMessage.nameChauffeur}}
+          </span>
+        </div>
+      </div>
+
+     
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="phoneChauffeurId">هاتف السائق</label>
+
+        <div class="col-md-8">
+          <input class="form-control"
+                    id="phoneChauffeurId"
+                    type="email"
+                    placeholder="هاتف السائق"
+                    rows=3
+                    formControlName="phoneChauffeur"
+                    [ngClass]="{'is-invalid': displayMessage.phoneChauffeur}"/>
+          <span class="invalid-feedback">
+            {{ displayMessage.phoneChauffeur}}
+          </span>
+        </div>
+      </div>
+
+      
+      
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="chauffeurForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!chauffeurForm.valid"
+                  [routerLink]="['/base/قائمة السائقين']">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/قائمة السائقين']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this chauffeur"
+                  (click)="deleteChauffeur()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="accident">
+    {{pageTitle + ": " + accident.id}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="accident">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"> وقت  الحادث:</div>
+          <div class="col-md-6">{{accident.timeAccident}}</div>
+        </div>
+       
+        <div class="row">
+          <div class="col-md-3">تاريخ الحادث :</div>
+          <div class="col-md-6">{{accident.dateAccident}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"> تاريخ التسجيل :</div>
+          <div class="col-md-6">{{accident.dateSaisi}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">وقت التسجيل :</div>
+          <div class="col-md-6">{{accident.timeSaisi}}</div>
+        </div>
+         <div class="row">
+          <div class="col-md-3">تاريخ الاعلام :</div>
+          <div class="col-md-6">{{accident.dateInfo}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">وقت الاعلام:</div>
+          <div class="col-md-6">{{accident.timeInfo}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Description:</div>
+          <div class="col-md-6">{{accident.description}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">type Accident Route:</div>
+          <div class="col-md-6">{{accident.typeAccRoute}}</div>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/base/accidentsroute', accident.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<html dir="rtl" lang="ar">
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> <strong> تسجيل مطفأة حريق </strong>
+          <div class="card-header-actions">
+            <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse()"><i class={{iconCollapse}}></i></button>
+          </div>
+        </div>
+        <div (collapsed)="collapsed($event)"
+             (expanded)="expanded($event)"
+             [collapse]="isCollapsed"
+             class="card-body">
+
+             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                       
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input">رقم السلسلة</label>
+                  <div class="col-md-9">
+                    <input type="text" id="text-input" name="text-input" class="form-control" placeholder="رقم السلسلة">
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input">النوع</label>
+                  <div class="col-md-9">
+                    <input type="text" id="text-input" name="text-input" class="form-control" placeholder="النوع">
+                  </div>
+              </div>
+
+
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="date-input">تاريخ انتهاء الصلاحية</label>
+                  <div class="col-md-9">
+                    <input class="form-control" id="date-input" type="date" name="date-input" placeholder="اليوم">
+                  </div>
+                </div>
+  
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="text-input">المكان</label>
+                <div class="form-group row">
+                    <div class="col-md-3 col-form-label">
+                      <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1">
+                        <label class="form-check-label" for="inline-checkbox1">حافلة</label>
+                      </div>
+                      <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" type="checkbox" id="inline-checkbox2" value="option2">
+                        <label class="form-check-label" for="inline-checkbox2">مخزن</label>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input">الحافلة رقم / المخزن</label>
+                  <div class="col-md-9">
+                    <input type="text" id="text-input" name="text-input" class="form-control" placeholder="الحافلة رقم / المخزن">
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="file-multiple-input">الصورة</label>
+                  <div class="col-md-9">
+                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple>
+                  </div>
+              </div>
+            </form>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> ارسال</button>
+                <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> حذف</button>
+            </div>    
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+</div>
+</html>

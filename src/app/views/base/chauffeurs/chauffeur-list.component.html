@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]="listFilter" />
+      </div>
+    </div>
+    <div class="row"
+         *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="chauffeurs && chauffeurs.length">
+        <thead>
+          <tr>
+           <th>تفاصيل  السائق</th>  
+           <th>الرقم الالي السائق</th>
+            <th>عنوان  السائق</th>
+             <th>مدينة  السائق</th>
+              <th>البريد الإلكتروني للسائق</th>
+               <th>لقب  السائق</th>
+            <th>اسم السائق</th>
+            <th>هاتف السائق </th>
+            <th>تحديث</th> 
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of filteredChauffeurs">
+            
+            <td>
+              <a [routerLink]="['/base/chauffeurs', c.id]">
+                {{ c.id }}
+              </a>
+            </td>
+             <td>{{c.id}}</td>
+             <td>{{c.addressChauffeur}}</td>
+             <td>{{c.cityChauffeur}}</td>
+             <td>{{c.emailChauffeur}}</td>
+             <td>{{c.lastNameChauffeur}}</td>
+              <td>{{c.nameChauffeur}}</td>
+              <td>{{c. phoneChauffeur}}</td>
+            
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/base/chauffeurs', c.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>

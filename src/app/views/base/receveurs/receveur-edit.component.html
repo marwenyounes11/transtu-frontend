@@ -1,0 +1,135 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveReceveur()"
+          [formGroup]="receveurForm">
+          <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="addressReceveurId">عنوان القابض</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="addressReceveurId"
+                 type="text"
+                 placeholder="عنوان القابض"
+                 formControlName="addressReceveur"
+                 [ngClass]="{'is-invalid': displayMessage.addressReceveur }" />
+          <span class="invalid-feedback">
+            {{displayMessage.addressReceveur}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="cityReceveurId">مدينة القابض</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="cityReceveurId"
+                 type="text"
+                 placeholder="مدينة القابض"
+                 formControlName="cityReceveur"
+                 [ngClass]="{'is-invalid': displayMessage.cityReceveur }" />
+          <span class="invalid-feedback">
+            {{displayMessage.cityReceveur}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="emailReceveurId">البريد الالكتروني للقابض</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="emailReceveurId"
+                 type="text"
+                 placeholder="البريد الالكتروني للقابض"
+                 formControlName="emailReceveur"
+                 [ngClass]="{'is-invalid': displayMessage.emailReceveur }" />
+          <span class="invalid-feedback">
+            {{displayMessage.emailReceveur}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="lastNameReceveurId"> لقب القابض</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="lastNameReceveurId"
+                 type="text"
+                 placeholder=" لقب القابض"
+                 formControlName="lastNameReceveur"
+                 [ngClass]="{'is-invalid': displayMessage.lastNameReceveur }" />
+          <span class="invalid-feedback">
+            {{displayMessage.lastNameReceveur}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameReceveurId">اسم القابض</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="nameReceveurId"
+                 type="text"
+                 placeholder="اسم القابض"
+                 formControlName="nameReceveur"
+                 [ngClass]="{'is-invalid': displayMessage.nameReceveur }" />
+          <span class="invalid-feedback">
+            {{displayMessage.nameReceveur}}
+          </span>
+        </div>
+      </div>
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="phoneReceveurId">هاتف القابض</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="phoneReceveurId"
+                 type="text"
+                 placeholder="هاتف القابض"
+                 formControlName="phoneReceveur"
+                 [ngClass]="{'is-invalid': displayMessage.phoneReceveur }" />
+          <span class="invalid-feedback">
+            {{displayMessage.phoneReceveur}}
+          </span>
+        </div>
+      </div>
+
+       
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="receveurForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!receveurForm.valid"
+                  [routerLink]="['/base/receveur']">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/base/receveur']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this agent"
+                  (click)="deleteReceveur()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>
